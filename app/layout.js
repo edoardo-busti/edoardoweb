@@ -1,5 +1,5 @@
 import "../public/assets/scss/main.scss";
-import "odometer/themes/odometer-theme-default.css"; // Import theme
+
 import "react-toastify/dist/ReactToastify.css";
 import LayoutWrapper from "@/components/common/LayoutWrapper";
 import Script from "next/script";
