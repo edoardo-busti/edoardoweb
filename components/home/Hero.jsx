@@ -16,10 +16,11 @@ export default function Hero() {
                   className="tmp-scroll-trigger tmp-zoom-in animation-order-1 hero-foto"
                   alt="banner-img"
                   src="/assets/images/banner/sito-web-foto-elegante_1.png"
-                  width={750}
-                  height={0}
+                  width={3840}
+                  height={4628}
                   quality={100}
                   style={{ width: "auto", height: "auto" }}
+                  unoptimized
                 />
                 {/**<h2 className="banner-big-text-1 up-down">WEB DESIGNER</h2>
                 <h2 className="banner-big-text-2 up-down-2">WEB DESIGNER</h2> */}
