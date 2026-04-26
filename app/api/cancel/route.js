@@ -1,24 +1,12 @@
 import { NextResponse } from "next/server";
 import { supabaseAdmin } from "@/lib/supabase";
 import { cancelSchema } from "@/lib/schemas";
-import { google } from "googleapis";
 import { Resend } from "resend";
+import { calendar } from "@/lib/google-calendar";
 import fs from "fs";
 import path from "path";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
-
-const oauth2Client = new google.auth.OAuth2(
-  process.env.GOOGLE_CLIENT_ID,
-  process.env.GOOGLE_CLIENT_SECRET,
-  process.env.GOOGLE_REDIRECT_URI,
-);
-
-oauth2Client.setCredentials({
-  refresh_token: process.env.GOOGLE_REFRESH_TOKEN,
-});
-
-const calendar = google.calendar({ version: "v3", auth: oauth2Client });
 
 function renderTemplate(templateName, vars) {
   const filePath = path.join(process.cwd(), "emails", `${templateName}.html`);

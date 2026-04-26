@@ -19,6 +19,7 @@ export default function Hero() {
                   width={750}
                   height={0}
                   quality={100}
+                  style={{ width: "auto", height: "auto" }}
                 />
                 {/**<h2 className="banner-big-text-1 up-down">WEB DESIGNER</h2>
                 <h2 className="banner-big-text-2 up-down-2">WEB DESIGNER</h2> */}

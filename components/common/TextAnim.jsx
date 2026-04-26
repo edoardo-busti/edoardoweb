@@ -18,6 +18,7 @@ export default function TextAnim() {
               src="/assets/images/banner/right-bg-text-para-doc.png"
               width={614}
               height={268}
+              style={{ width: "auto", height: "auto" }}
             />
           </div>
           <div className="left-bg-text-para">
@@ -26,6 +27,7 @@ export default function TextAnim() {
               src="/assets/images/banner/left-bg-text-para-doc.png"
               width={614}
               height={268}
+              style={{ width: "auto", height: "auto" }}
             />
           </div>
         </div>

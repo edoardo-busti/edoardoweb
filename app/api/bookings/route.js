@@ -110,7 +110,11 @@ export async function POST(request) {
   } catch (err) {
     console.error("Booking error:", err);
     return NextResponse.json(
-      { error: "Booking failed", detail: err.message },
+      {
+        error:
+          "Si è verificato un problema di connessione. Non ti preoccupare, contattami direttamente su Whatsapp al numero +39 3751458896.",
+        detail: err.message,
+      },
       { status: 500 },
     );
   }

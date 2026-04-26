@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
 
 const PHONE_NUMBER = "393751458896"; // <-- Inserisci il tuo numero con prefisso internazionale
 
@@ -139,8 +138,7 @@ export default function WhatsAppChat() {
         .wa-avatar img {
           width: 100%;
           height: 100%;
-          border-radius: 50%;
-          
+          border-radius: 50%;          
         }
 
         .wa-header-info h3 {
@@ -272,11 +270,12 @@ export default function WhatsAppChat() {
         <div className="wa-panel" data-visible={open}>
           <div className="wa-header">
             <div className="wa-avatar">
-              <Image
+              <img
                 src="/assets/images/banner/sito-web-foto-bg.png"
                 alt="Assistenza"
                 width={42}
                 height={42}
+                fill="true"
               />
             </div>
             <div className="wa-header-info">

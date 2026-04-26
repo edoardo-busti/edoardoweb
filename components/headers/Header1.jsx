@@ -2,7 +2,6 @@
 import React from "react";
 import Nav1 from "./Nav1";
 import Image from "next/image";
-import Link from "next/link";
 import { openSidebar } from "@/utlis/toggleSidebar";
 import { openMobilemenu } from "@/utlis/toggleMobilemenu";
 export default function Header1({
@@ -19,17 +18,19 @@ export default function Header1({
                 <a href={`/`}>
                   <Image
                     className="logo-dark"
-                    alt="Reeni - Personal Portfolio HTML Template for developers and freelancers"
+                    alt="EB - Soluzioni Web"
                     src={darkLogo}
                     width={121}
                     height={41}
+                    style={{ width: "auto", height: "auto" }}
                   />
                   <Image
                     className="logo-white"
-                    alt="Reeni - Personal Portfolio HTML Template for developers and freelancers"
+                    alt="EB - Soluzioni Web"
                     src={lightLogo}
                     width={121}
                     height={40}
+                    style={{ width: "auto", height: "auto" }}
                   />
                 </a>
               </div>

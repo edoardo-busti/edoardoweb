@@ -32,6 +32,7 @@ export default function MockupDisplay({ mockups, activeIndex }) {
             fill
             style={{ objectFit: "contain" }}
             priority={index === 0}
+            sizes="(max-width: 768px) 100vw, 50vw"
           />
 
           {/* Label — animazione CSS keyframe, riparte ad ogni attivazione */}

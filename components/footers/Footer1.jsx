@@ -18,17 +18,19 @@ export default function Footer1({
                     <a href={`/`}>
                       <Image
                         className="logo-dark"
-                        alt="Reeni - Personal Portfolio HTML Template for developers and freelancers"
+                        alt="EB - Soluzioni Web"
                         src={darkLogo}
                         width={121}
                         height={41}
+                        style={{ width: "auto", height: "auto" }}
                       />
                       <Image
                         className="logo-white"
-                        alt="Reeni - Personal Portfolio HTML Template for developers and freelancers"
+                        alt="EB - Soluzioni Web"
                         src={lightLogo}
                         width={121}
                         height={40}
+                        style={{ width: "auto", height: "auto" }}
                       />
                     </a>
                   </div>

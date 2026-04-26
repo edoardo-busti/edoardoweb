@@ -38,6 +38,7 @@ export default function ServiceCard({ service, index, isActive, registerRef }) {
                   alt={feature.label}
                   width={28}
                   height={28}
+                  style={{ width: "auto", height: "auto" }}
                 />
                 <span>{feature.label}</span>
               </li>

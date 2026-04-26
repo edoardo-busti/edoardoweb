@@ -2,6 +2,7 @@ import React from "react";
 
 import { services } from "@/data/services";
 
+import Link from "next/link";
 export default function Services({ isLight = false }) {
   return (
     <div className="service-area mt--120">
@@ -28,9 +29,9 @@ export default function Services({ isLight = false }) {
                 <div className="service-card-icon">
                   <i className={service.icon} />
                 </div>
-                <h3 className="service-title">
+                <h4 className="service-title">
                   <a href="/faq">{service.title}</a>
-                </h3>
+                </h4>
                 <p className="service-para">{service.projects}</p>
               </div>
             </div>
