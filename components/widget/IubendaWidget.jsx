@@ -27,7 +27,7 @@ const SCRIPT_SRC =
   "https://embeds.iubenda.com/widgets/77d4d17c-edac-4f17-8bdf-b76a69add06f.js";
 
 /** Attesa dopo il load della pagina prima di iniettare lo script */
-const DELAY = 800;
+const DELAY = 1000;
 
 /** Sottostringa per riconoscere i nodi Iubenda */
 const IUBENDA_MARKER = "iubenda";
