@@ -83,16 +83,7 @@
       "Il contratto prevede una clausola di recesso chiara per entrambe le parti.",
       "Se recedi tu (cliente): hai il diritto di interrompere il progetto in qualsiasi momento con comunicazione scritta. Ti verrà addebitato il lavoro effettivamente svolto fino a quel momento, calcolato sulle milestone completate o sulle ore impiegate. L'acconto versato non è rimborsabile, in quanto copre la pianificazione, la ricerca iniziale e la prenotazione della mia agenda.",
       "Se recedo io (professionista): ti verrà restituita la parte di compenso relativa al lavoro non ancora svolto. Ti consegnerò tutti i materiali e i file prodotti fino a quel momento, affinché tu possa proseguire con un altro professionista.",
-      "In entrambi i casi, il contratto stabilisce un termine di preavviso di [7/15/30 giorni]."
-    ]
-  },
-  {
-    "id": 12,
-    "question": "Quali metodi di pagamento accetti e come sono suddivisi?",
-    "answers": [
-      "Accetto pagamenti tramite [bonifico bancario/PayPal/Stripe/Satispay/altro]. Per i clienti esteri è possibile pagare tramite [bonifico SEPA/SWIFT/PayPal/Wise].",
-      "La suddivisione standard dei pagamenti è la seguente: [30%] alla firma del contratto (acconto, a conferma dell'incarico), [30%] al raggiungimento di una milestone intermedia concordata (es. approvazione del design), [40%] saldo alla consegna finale, prima della messa online.",
-      "Per progetti di importo superiore a [€X.XXX] o di durata particolarmente lunga, possiamo concordare un piano di pagamento personalizzato con rate mensili legate all'avanzamento dei lavori."
+      "In entrambi i casi, il contratto stabilisce un termine di preavviso di 7/15/30 giorni."
     ]
   },
 
@@ -101,7 +92,7 @@
     "question": "Cosa succede in caso di ritardo nei pagamenti?",
     "answers": [
       "Il rispetto delle scadenze di pagamento è essenziale per garantire la continuità del progetto.",
-      "In caso di mancato pagamento entro i termini concordati: invio un primo sollecito scritto dopo [7 giorni] dalla scadenza; se il pagamento non viene regolarizzato entro ulteriori [15 giorni], mi riservo il diritto di sospendere tutte le attività in corso fino al saldo; in caso di inadempimento prolungato, il contratto prevede l'applicazione di interessi di mora ai sensi del D.Lgs. 231/2002, oltre al diritto di risolvere il contratto e richiedere il pagamento del lavoro svolto.",
+      "In caso di mancato pagamento entro i termini concordati: invio un primo sollecito scritto dopo 7 giorni dalla scadenza; se il pagamento non viene regolarizzato entro ulteriori [15 giorni], mi riservo il diritto di sospendere tutte le attività in corso fino al saldo; in caso di inadempimento prolungato, il contratto prevede l'applicazione di interessi di mora ai sensi del D.Lgs. 231/2002, oltre al diritto di risolvere il contratto e richiedere il pagamento del lavoro svolto.",
       "Il sito o i materiali prodotti non verranno consegnati né resi accessibili fino al completo saldo di quanto dovuto."
     ]
   },
