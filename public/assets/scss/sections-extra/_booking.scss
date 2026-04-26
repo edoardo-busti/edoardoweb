@@ -1,0 +1,967 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// BookingModal — _booking.scss
+// Prefisso: bm-
+// Import nel tuo global SCSS: @use 'booking';
+// Dipendenze: nessuna (no librerie esterne)
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── Variabili ─────────────────────────────────────────────────────────────────
+$bm-primary: #ff0000;
+$bm-primary-dim: rgba(255, 0, 0, 0.08);
+$bm-primary-border: rgba(255, 0, 0, 0.2);
+$bm-bg-modal: #141414;
+$bm-bg-card: #1c1c1c;
+$bm-bg-card-hover: #222222;
+$bm-bg-input: #1a1a1a;
+$bm-border: rgba(255, 255, 255, 0.1);
+$bm-border-hover: rgba(255, 255, 255, 0.2);
+$bm-text: #ffffff;
+$bm-text-muted: rgba(255, 255, 255, 0.5);
+$bm-text-subtle: rgba(255, 255, 255, 0.28);
+$bm-radius: 20px;
+$bm-radius-sm: 10px;
+$bm-transition: 0.3s ease;
+$bm-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+// ── Overlay ───────────────────────────────────────────────────────────────────
+.bm-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  animation: bm-fade-in 0.2s ease forwards;
+}
+
+@keyframes bm-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// ── Container ─────────────────────────────────────────────────────────────────
+// overflow e pseudo-elementi gestiti da tmponhover.
+.bm-container {
+  width: 100%;
+  max-width: 460px;
+  background: $bm-bg-modal;
+  border-radius: $bm-radius;
+  border: 1px solid $bm-border;
+  overflow: hidden;
+  animation: bm-slide-up 0.25s $bm-ease forwards;
+}
+
+// scale invece di translateY — non sposta il bounding box, nessun salto
+@keyframes bm-slide-up {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// ── Header ────────────────────────────────────────────────────────────────────
+.bm-header {
+  padding: 22px 24px 18px;
+  border-bottom: 1px solid $bm-border;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bm-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bm-header-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: $bm-radius-sm;
+  background: $bm-primary-dim;
+  border: 1px solid $bm-primary-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: $bm-primary;
+}
+
+.bm-header-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: $bm-text;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+
+.bm-header-sub {
+  font-size: 14px;
+  font-weight: 300;
+  font-family: var(--font-secondary);
+  color: $bm-text-muted;
+  margin: 2px 0 0;
+}
+
+.bm-close {
+  width: 28px;
+  height: 28px;
+  border-radius: $bm-radius-sm;
+  border: 1px solid $bm-border;
+  background: none;
+  cursor: pointer;
+  color: $bm-text-muted;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background $bm-transition,
+    color $bm-transition,
+    border-color $bm-transition;
+
+  &:hover {
+    background: $bm-bg-card;
+    color: $bm-text;
+    border-color: $bm-border-hover;
+  }
+}
+
+// ── Progress bar ──────────────────────────────────────────────────────────────
+.bm-progress {
+  display: flex;
+  gap: 5px;
+  padding: 18px 24px 0;
+}
+
+.bm-progress-seg {
+  height: 2px;
+  flex: 1;
+  border-radius: 2px;
+  background: $bm-border;
+  position: relative;
+  overflow: hidden;
+
+  &--done {
+    background: rgba(255, 0, 0, 0.35);
+  }
+
+  &--active {
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: $bm-primary;
+      border-radius: 2px;
+      animation: bm-seg-fill 0.35s $bm-ease forwards;
+    }
+  }
+}
+
+@keyframes bm-seg-fill {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+}
+
+// ── Body + slide animations ───────────────────────────────────────────────────
+.bm-body {
+  padding: 20px 24px;
+  min-height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.bm-slide {
+  width: 100%;
+  animation-duration: 0.32s;
+  animation-timing-function: $bm-ease;
+  animation-fill-mode: both;
+
+  &--enter-right {
+    animation-name: bm-enter-right;
+  }
+  &--enter-left {
+    animation-name: bm-enter-left;
+  }
+}
+
+@keyframes bm-enter-right {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bm-enter-left {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// ── Section label ─────────────────────────────────────────────────────────────
+.bm-section-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: $bm-text-subtle;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0 0 14px;
+}
+
+// ── Step 1 — calendario ───────────────────────────────────────────────────────
+.bm-cal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.bm-cal-month {
+  font-size: 18px;
+  font-weight: 700;
+  color: $bm-text;
+  text-transform: capitalize;
+}
+
+.bm-cal-nav {
+  width: 28px;
+  height: 28px;
+  border-radius: $bm-radius-sm;
+  border: 1px solid $bm-border;
+  background: none;
+  cursor: pointer;
+  color: $bm-text-muted;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background $bm-transition,
+    color $bm-transition,
+    border-color $bm-transition;
+
+  &:hover {
+    background: $bm-bg-card;
+    color: $bm-text;
+    border-color: $bm-border-hover;
+  }
+}
+
+.bm-cal-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 3px;
+}
+
+.bm-cal-dn {
+  font-size: 16px;
+  font-weight: 700;
+  color: $bm-text-subtle;
+  text-align: center;
+  padding: 4px 0;
+  letter-spacing: 0.04em;
+}
+
+.bm-cal-day {
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border-radius: $bm-radius-sm;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: $bm-text-subtle;
+  transition:
+    background $bm-transition,
+    transform 0.15s ease;
+  position: relative;
+
+  &--past {
+    color: $bm-text-subtle;
+    pointer-events: none;
+  }
+
+  &--available {
+    color: $bm-text;
+
+    &:hover {
+      background: $bm-bg-card;
+      transform: scale(1.08);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 3px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: $bm-primary;
+      opacity: 0.6;
+    }
+  }
+
+  &--today {
+    color: $bm-primary;
+    font-weight: 700;
+  }
+
+  &--selected {
+    background: $bm-primary !important;
+    color: #fff !important;
+    font-weight: 700;
+    transform: scale(1) !important;
+
+    &::after {
+      display: none;
+    }
+  }
+}
+
+// ── Step 2 — slot orari ───────────────────────────────────────────────────────
+.bm-slots-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.bm-slots-empty {
+  font-size: 18px;
+  color: $bm-text-muted;
+  margin: 0;
+}
+
+.bm-slot {
+  background: $bm-bg-card;
+  border: 1px solid $bm-border;
+  border-radius: $bm-radius-sm;
+  padding: 9px 4px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  color: $bm-text;
+  transition:
+    border-color $bm-transition,
+    background $bm-transition,
+    transform 0.15s ease;
+
+  &:hover:not(:disabled) {
+    border-color: $bm-border-hover;
+    background: $bm-bg-card-hover;
+    transform: translateY(-2px);
+  }
+
+  &--selected {
+    background: $bm-primary !important;
+    border-color: $bm-primary !important;
+    color: #fff !important;
+    font-weight: 700;
+    transform: translateY(-2px);
+  }
+
+  &--taken {
+    color: $bm-text-subtle;
+    text-decoration: line-through;
+    pointer-events: none;
+  }
+}
+
+// ── Step 3 — form ─────────────────────────────────────────────────────────────
+.bm-form-row {
+  margin-bottom: 14px;
+}
+
+.bm-form-label {
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  color: $bm-text-subtle;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 7px;
+}
+
+.bm-form-input {
+  width: 100%;
+  padding: 11px 14px;
+  background: $bm-bg-input;
+  border: 1px solid $bm-border;
+  border-radius: $bm-radius-sm;
+  color: $bm-text;
+  font-size: 16px;
+  font-family: inherit;
+  outline: none;
+  transition: border-color $bm-transition;
+
+  &::placeholder {
+    color: $bm-text-subtle;
+  }
+
+  &:focus {
+    border-color: $bm-primary;
+  }
+}
+
+// ── Select ────────────────────────────────────────────────────────────────────
+.bm-select-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.bm-select {
+  appearance: none;
+  cursor: pointer;
+  padding-right: 36px;
+
+  option {
+    background: $bm-bg-card;
+    color: $bm-text;
+  }
+
+  option:disabled {
+    color: $bm-text-subtle;
+  }
+}
+
+.bm-select-arrow {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: $bm-text-muted;
+  pointer-events: none;
+}
+
+// ── Step 4 — confirm/summary ──────────────────────────────────────────────────
+.bm-summary-block {
+  border: 1px solid $bm-border;
+  border-radius: $bm-radius-sm;
+  padding: 14px 16px;
+  margin-bottom: 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.bm-summary-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $bm-text-subtle;
+  margin: 0 0 10px;
+}
+
+.bm-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 6px 12px;
+}
+
+.bm-summary-key {
+  font-size: 16px;
+  color: $bm-text-muted;
+}
+
+.bm-summary-val {
+  font-size: 16px;
+  color: $bm-text;
+  font-weight: 500;
+}
+
+// ── Step 5 — success ──────────────────────────────────────────────────────────
+.bm-success {
+  text-align: center;
+  padding: 16px 0 8px;
+}
+
+.bm-success-ring {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid $bm-primary-border;
+  background: $bm-primary-dim;
+  color: $bm-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 18px;
+  animation: bm-ring-in 0.5s $bm-ease both;
+}
+
+@keyframes bm-ring-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.bm-success-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: $bm-text;
+  margin: 0 0 8px;
+}
+
+.bm-success-sub {
+  font-size: 16px;
+  color: $bm-text-muted;
+  line-height: 1.6;
+  margin: 0;
+
+  strong {
+    color: $bm-text;
+    font-weight: 500;
+  }
+}
+
+// ── Footer ────────────────────────────────────────────────────────────────────
+.bm-footer {
+  padding: 16px 24px;
+  border-top: 1px solid $bm-border;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.bm-btn {
+  border-radius: $bm-radius-sm;
+  padding: 10px 18px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    opacity $bm-transition,
+    transform 0.15s ease,
+    border-color $bm-transition,
+    color $bm-transition;
+
+  &--back {
+    background: transparent;
+    border: 1px solid $bm-primary;
+    color: $bm-primary;
+    white-space: nowrap;
+
+    &:hover:not(:disabled) {
+      opacity: 0.88;
+      transform: translateY(-2px);
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+  }
+
+  &--next {
+    flex: 1;
+    background: $bm-primary;
+    border: 1px solid $bm-primary;
+    color: #fff;
+    letter-spacing: 0.01em;
+
+    &:hover:not(:disabled) {
+      opacity: 0.88;
+      transform: translateY(-2px);
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+
+    &:disabled {
+      opacity: 0.32;
+      background: $bm-border;
+      border-color: $bm-border;
+      cursor: not-allowed;
+      transform: none;
+    }
+  }
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (max-width: 576px) {
+  .bm-slots-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .bm-summary-grid {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .bm-summary-key {
+    margin-top: 6px;
+  }
+}
+
+// ── Type options (radio visuale con icona) ────────────────────────────────────
+.bm-type-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.bm-type-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 11px 14px;
+  background: $bm-bg-input;
+  border: 1px solid $bm-border;
+  border-radius: $bm-radius-sm;
+  color: $bm-text-muted;
+  font-size: 18px;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition:
+    border-color $bm-transition,
+    color $bm-transition;
+
+  &:hover {
+    border-color: $bm-border-hover;
+    color: $bm-text;
+  }
+
+  &--selected {
+    border-color: $bm-primary;
+    color: $bm-text;
+
+    .bm-type-option-dot {
+      background: $bm-primary;
+      border-color: $bm-primary;
+    }
+  }
+}
+
+.bm-type-option-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid $bm-border-hover;
+  flex-shrink: 0;
+  transition:
+    background $bm-transition,
+    border-color $bm-transition;
+}
+
+// ── Layout dialog a due colonne ───────────────────────────────────────────────
+.bm-dialog {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  max-width: 920px;
+  background: $bm-bg-modal;
+  border-radius: $bm-radius;
+  border: 1px solid $bm-border;
+  overflow: hidden;
+  animation: bm-fade-in 0.25s $bm-ease forwards; // ← usa bm-fade-in, non bm-slide-up
+}
+
+@media screen and (max-width: 991px) {
+  .bm-dialog {
+    width: 90vw;
+    height: 80vh;
+    overflow: scroll;
+  }
+
+  .bm-close-mobile {
+    display: block !important;
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    width: 32px;
+    z-index: 10;
+    border-radius: 10px;
+  }
+  .bm-close {
+    display: none !important;
+  }
+}
+
+.bm-close {
+  display: block;
+}
+
+.bm-close-mobile {
+  display: none;
+}
+
+.bm-info-col {
+  width: 360px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.bm-divider {
+  width: 1px;
+  background: $bm-border;
+  flex-shrink: 0;
+}
+
+.bm-wizard-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+// ── BookingInfo panel ─────────────────────────────────────────────────────────
+.bi-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.bi-banner-wrap {
+  position: relative;
+  width: 100%;
+  height: 160px;
+  flex-shrink: 0;
+  background: $bm-bg-card;
+  overflow: visible;
+}
+
+.bi-banner-img {
+  object-fit: cover;
+}
+
+.bi-banner-placeholder {
+  width: 100%;
+  height: 100%;
+  background: $bm-bg-card;
+}
+
+.bi-avatar-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 50%);
+  z-index: 2;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 3px solid $bm-bg-modal;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.bi-avatar-img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.bi-avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  background: $bm-primary-dim;
+  border: 1px solid $bm-primary-border;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: $bm-primary;
+}
+
+.bi-body {
+  padding: 52px 24px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.bi-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: $bm-text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 0;
+  text-align: center;
+}
+
+.bi-title {
+  font-size: 25px;
+  font-weight: 700;
+  color: $bm-text;
+  margin: 0;
+  text-align: center;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.bi-duration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 18px;
+  color: $bm-primary;
+  margin: 0;
+
+  svg {
+    flex-shrink: 0;
+  }
+}
+
+.bi-description {
+  font-size: 16px;
+  font-weight: 300;
+  font-family: var(--font-secondary);
+  color: $bm-text-muted;
+  line-height: 1.6;
+  margin: 8px 0 0;
+  text-align: center;
+}
+
+// ── Responsive — mobile stack verticale ──────────────────────────────────────
+@media (max-width: 768px) {
+  .bm-dialog {
+    flex-direction: column;
+    max-width: 460px;
+  }
+
+  .bm-info-col {
+    width: 100%;
+  }
+
+  .bm-divider {
+    width: 100%;
+    height: 1px;
+  }
+
+  .bi-banner-wrap {
+    height: 120px;
+  }
+}
+
+// ── Slots loading / error ─────────────────────────────────────────────────────
+.bm-slots-loading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: $bm-text-muted;
+  font-size: 16px;
+}
+
+.bm-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid $bm-border;
+  border-top-color: $bm-primary;
+  border-radius: 50%;
+  animation: bm-spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes bm-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.bm-slots-error {
+  font-size: 16px;
+  color: $bm-primary;
+  margin: 0;
+}
+
+.bm-submit-error {
+  font-size: 18px;
+  color: $bm-primary;
+  margin: 12px 0 0;
+  padding: 10px 14px;
+  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: $bm-radius-sm;
+  background: rgba(255, 0, 0, 0.06);
+}
+
+// ── Consensi ──────────────────────────────────────────────────────────────────
+.bm-consents {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  padding-top: 16px;
+  border-top: 1px solid $bm-border;
+}
+
+.bm-consent-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.bm-checkbox {
+  width: 16px;
+  height: 16px;
+  border: 1px solid $bm-border;
+  border-radius: 4px;
+  background: $bm-bg-input;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 2px;
+  accent-color: $bm-primary;
+}
+
+.bm-consent-text {
+  font-size: 14px;
+  color: $bm-text-muted;
+  line-height: 1.5;
+}
+
+.bm-consent-link {
+  color: $bm-primary;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.bm-consent-required {
+  color: $bm-primary;
+  font-weight: 700;
+}

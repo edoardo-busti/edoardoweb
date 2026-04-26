@@ -1,0 +1,617 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// QuoteWidget — da appendere al forms.scss del progetto
+// Prefisso: qw-
+// Classi .input-field, .form-group, .tmp-btn, .contact-form-wrapper,
+// .row, .col-lg-* sono già definite nel tema. Non vengono ridefinite qui.
+// ─────────────────────────────────────────────────────────────────────────────
+
+// ── Variabili — allineate al design system booking ────────────────────────────
+$qw-primary: #ff0000;
+$qw-primary-dim: rgba(255, 0, 0, 0.08);
+$qw-primary-border: rgba(255, 0, 0, 0.2);
+$qw-bg: #141414;
+$qw-bg-card: #1c1c1c;
+$qw-bg-input: #1a1a1a;
+$qw-border: rgba(255, 255, 255, 0.1);
+$qw-border-hover: rgba(255, 255, 255, 0.2);
+$qw-text: #ffffff;
+$qw-text-muted: rgba(255, 255, 255, 0.5);
+$qw-text-subtle: rgba(255, 255, 255, 0.28);
+$qw-radius: 10px;
+$qw-transition: 0.3s ease;
+$qw-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+// ── Container ─────────────────────────────────────────────────────────────────
+.qw-container {
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+// ── Progress bar ──────────────────────────────────────────────────────────────
+// Stile invariato — dot numerati, non segmenti booking
+.qw-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qw-progress-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 1;
+
+  &:last-child {
+    flex: 0 0 auto;
+  }
+}
+
+.qw-progress-dot {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  background: transparent;
+  color: $qw-text-subtle;
+  font-size: 1rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: $qw-transition;
+
+  &--active {
+    border-color: $qw-primary;
+    color: $qw-primary;
+  }
+
+  &--done {
+    border-color: $qw-primary;
+    background: $qw-primary;
+    color: #000;
+  }
+}
+
+.qw-progress-label {
+  font-size: 1.8rem;
+  color: $qw-text-muted;
+  white-space: nowrap;
+  transition: $qw-transition;
+
+  &--active {
+    color: $qw-primary;
+    font-weight: 500;
+  }
+}
+
+.qw-progress-line {
+  flex: 1;
+  height: 2px;
+  background: $qw-border;
+  transition: background 0.4s ease;
+  margin: 0 8px;
+
+  &--done {
+    background: rgba(255, 0, 0, 0.35);
+  }
+}
+
+// ── Slide viewport + animazioni ───────────────────────────────────────────────
+.qw-slides-viewport {
+  position: relative;
+  margin-top: 3.5rem;
+}
+
+.qw-slide {
+  width: 100%;
+  animation-duration: 0.32s;
+  animation-timing-function: $qw-ease;
+  animation-fill-mode: both;
+
+  &--exit-left {
+    animation-name: qwExitLeft;
+  }
+  &--exit-right {
+    animation-name: qwExitRight;
+  }
+  &--enter-right {
+    animation-name: qwEnterRight;
+  }
+  &--enter-left {
+    animation-name: qwEnterLeft;
+  }
+}
+
+@keyframes qwExitLeft {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+}
+@keyframes qwExitRight {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+}
+@keyframes qwEnterRight {
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes qwEnterLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// ── Label ─────────────────────────────────────────────────────────────────────
+.qw-label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  line-height: 22px;
+  font-weight: 600;
+  color: $qw-text-muted;
+}
+
+// ── CustomSelect ──────────────────────────────────────────────────────────────
+.qw-select-wrapper {
+  position: relative;
+  width: 100%;
+  font-family: inherit;
+}
+
+.qw-select-trigger {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+  padding: 15px 20px;
+  border-radius: $qw-radius;
+  background: $qw-bg-input;
+  border: 1px solid $qw-primary-border;
+  color: $qw-text;
+  transition: border-color $qw-transition;
+
+  &:focus-visible {
+    border-color: $qw-primary;
+  }
+
+  .qw-select-wrapper--open & {
+    border-color: $qw-primary-border;
+    border-bottom-color: $qw-border;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .qw-select-wrapper--disabled & {
+    opacity: 0.15;
+    cursor: not-allowed;
+  }
+}
+
+.qw-select-placeholder {
+  color: $qw-text;
+  opacity: 1;
+}
+
+.qw-select-arrow {
+  font-size: 1.5rem;
+  color: $qw-text-muted;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+  flex-shrink: 0;
+  line-height: 1;
+
+  &--open {
+    transform: rotate(180deg);
+    color: $qw-primary;
+  }
+}
+
+.qw-select-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  z-index: 200;
+  background: $qw-bg-card;
+  border: 1px solid $qw-primary-border;
+  border-top: none;
+  border-bottom-left-radius: $qw-radius;
+  border-bottom-right-radius: $qw-radius;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  animation: qwDropdown 0.35s $qw-ease forwards;
+
+  // Limite altezza + scroll
+  max-height: 140px;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  // Scrollbar — coerente col design system
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(255, 0, 0, 0.35);
+    border-radius: 2px;
+    &:hover {
+      background: $qw-primary;
+    }
+  }
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 0, 0, 0.35) transparent;
+
+  li {
+    margin-top: 3px;
+    margin-bottom: 0;
+  }
+}
+
+@keyframes qwDropdown {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.qw-select-option {
+  padding: 6px 10px;
+  font-size: 14px;
+  color: $qw-text-muted;
+  cursor: pointer;
+  letter-spacing: 0.01em;
+  transition: 200ms ease-in-out;
+
+  &:hover {
+    background: $qw-primary;
+    color: $qw-text;
+  }
+
+  &--selected {
+    background: $qw-primary;
+    color: #fff;
+    font-weight: 500;
+
+    &:hover {
+      background: $qw-primary;
+      color: #000;
+    }
+
+    &::before {
+      content: "✓ ";
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.qw-select-option-desc {
+  display: block;
+  font-size: 0.72rem;
+  opacity: 0.65;
+}
+
+// ── Bottoni widget ────────────────────────────────────────────────────────────
+.qw-btn {
+  font-weight: 600;
+  padding: 0 30px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: $qw-radius;
+  font-size: 18px;
+  letter-spacing: 0.6px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    opacity $qw-transition,
+    transform 0.15s ease,
+    border-color $qw-transition,
+    color $qw-transition;
+
+  &:disabled {
+    background: rgba(255, 255, 255, 0.08);
+    color: #ffffff3f;
+    opacity: 0.3;
+    border-color: transparent;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  &--calculated {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border-color: transparent;
+    pointer-events: none;
+  }
+
+  // ── Allineato a bm-btn--back ──────────────────────────────────────────────
+  // border primary, color primary (non muted + border sottile)
+  &--back {
+    background: transparent;
+    border: 1px solid $qw-primary;
+    color: $qw-primary;
+
+    &:hover:not(:disabled) {
+      opacity: 0.88;
+      transform: translateY(-2px);
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+  }
+
+  &--next,
+  &--submit {
+    background: $qw-primary;
+    border: 1px solid $qw-primary;
+    color: #fff;
+
+    &:hover:not(:disabled) {
+      opacity: 0.88;
+      transform: translateY(-2px);
+    }
+
+    &:active:not(:disabled) {
+      transform: scale(0.98);
+    }
+  }
+}
+
+// ── Riga risultato calcolo ────────────────────────────────────────────────────
+.qw-result-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.qw-result {
+  font-size: 14px;
+  color: $qw-text-muted;
+
+  strong {
+    color: $qw-primary;
+    font-size: 16px;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+// ── Spinner — allineato a bm-spinner ─────────────────────────────────────────
+// 16px, border 2px, durata 0.7s (identico al booking)
+.qw-spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-top-color: $qw-primary;
+  border-radius: 50%;
+  animation: qwSpin 0.7s linear infinite;
+  flex-shrink: 0;
+
+  &--inline {
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+}
+
+@keyframes qwSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// ── Nota asterisco ────────────────────────────────────────────────────────────
+.qw-note {
+  font-size: 16px;
+  line-height: 1.45;
+  color: $qw-text-subtle;
+  margin-top: 6px;
+  margin-bottom: 0;
+}
+
+// ── Feedback post-invio ───────────────────────────────────────────────────────
+.qw-feedback {
+  font-size: 14px;
+  line-height: 1.45;
+  padding: 10px 14px;
+  border-radius: $qw-radius;
+  margin-top: 12px;
+  margin-bottom: 0;
+
+  &--success {
+    background: rgba(187, 247, 55, 0.08);
+    border: 1px solid rgba(187, 247, 55, 0.3);
+    color: $qw-primary;
+  }
+
+  &--error {
+    background: rgba(244, 40, 45, 0.08);
+    border: 1px solid rgba(244, 40, 45, 0.35);
+    color: #f4282d;
+  }
+}
+
+// ── Riepilogo ─────────────────────────────────────────────────────────────────
+.qw-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.qw-summary-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  color: $qw-text;
+  letter-spacing: 0.02em;
+}
+
+.qw-summary-block {
+  border: 1px solid $qw-border;
+  border-radius: $qw-radius;
+  padding: 14px 16px;
+}
+
+.qw-summary-data {
+  border: 1px solid $qw-primary !important;
+}
+
+// ── Allineato a bm-summary-section-title ─────────────────────────────────────
+// font-size esplicito 14px (non 0.72rem), stesso stile uppercase/tracking
+.qw-summary-section-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: $qw-text-subtle;
+  margin: 0 0 10px;
+}
+
+.qw-summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 6px 12px;
+}
+
+// ── Allineato a bm-summary-key / bm-summary-val ──────────────────────────────
+// font-size portato a 16px per coerenza con il booking
+.qw-summary-key {
+  font-size: 16px;
+  color: $qw-text-muted;
+  opacity: 1;
+}
+
+.qw-summary-val {
+  font-size: 16px;
+  color: $qw-text;
+  font-weight: 500;
+}
+
+.qw-summary-price {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: $qw-primary;
+}
+
+.qw-summary-specs {
+  font-size: 14px;
+  line-height: 1.55;
+  color: $qw-text-muted;
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+// ── Responsive ────────────────────────────────────────────────────────────────
+@media (max-width: 576px) {
+  .qw-progress-label {
+    display: none;
+  }
+
+  .qw-progress-line {
+    margin: 0 4px;
+  }
+
+  .qw-summary-grid {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .qw-summary-key {
+    margin-top: 6px;
+  }
+}
+
+// ── Success screen ────────────────────────────────────────────────────────────
+// Allineato a bm-success del booking
+.qw-success {
+  text-align: center;
+  padding: 24px 0 16px;
+}
+
+.qw-success-ring {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: 1px solid $qw-primary-border;
+  background: $qw-primary-dim;
+  color: $qw-primary;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  animation: qwRingIn 0.5s $qw-ease both;
+}
+
+@keyframes qwRingIn {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.qw-success-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: $qw-text;
+  margin: 0 0 10px;
+  letter-spacing: -0.01em;
+}
+
+.qw-success-sub {
+  font-size: 16px;
+  color: $qw-text-muted;
+  line-height: 1.7;
+  margin: 0;
+
+  strong {
+    color: $qw-text;
+    font-weight: 600;
+  }
+}

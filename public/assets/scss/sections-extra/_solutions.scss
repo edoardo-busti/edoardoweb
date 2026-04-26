@@ -1,0 +1,181 @@
+// styles/_solutions.scss
+// Importa questo file nel tuo global SCSS: @use 'solutions';
+
+// ─── Variabili locali ────────────────────────────────────────────────────────
+$transition-card: 0.3s ease;
+$transition-text: 0.35s ease;
+
+// ─── MockupDisplay ───────────────────────────────────────────────────────────
+
+@keyframes mockup-label-in {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+section[id] {
+  scroll-margin-top: 120px; /* regola in base all'altezza della tua nav */
+}
+
+@media screen and (max-width: 991px) {
+  .mockup-display {
+    display: none !important;
+  }
+}
+
+.mockup-display {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    pointer-events: none;
+
+    &--active {
+      opacity: 1;
+      pointer-events: auto;
+
+      .mockup-display__label {
+        animation: mockup-label-in 0.5s ease forwards;
+      }
+    }
+  }
+
+  &__label {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 4.5rem;
+    padding-right: 4.5rem;
+    padding-bottom: 22%;
+
+    margin: 0;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.2;
+    text-align: center;
+    color: #ffffff;
+    text-shadow:
+      0 0 8px rgba(0, 0, 0, 1),
+      0 0 20px rgba(0, 0, 0, 1),
+      0 2px 4px rgba(0, 0, 0, 1),
+      0 4px 24px rgba(0, 0, 0, 0.8);
+
+    pointer-events: none;
+    opacity: 0;
+  }
+}
+
+// ─── ServiceCard ─────────────────────────────────────────────────────────────
+.service-card-v2 {
+  position: relative;
+  opacity: 0.25 !important;
+  overflow: hidden;
+
+  // ::before — gradiente radiale nell'angolo top-left
+  // sporge di 2px oltre il bordo grazie a inset: -2px
+
+  // Contenuto sopra i pseudo-elementi
+  & > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  &.is-active::before {
+    opacity: 1;
+  }
+
+  // ── Titolo ──────────────────────────────────────────────────────────────
+  &__title {
+    color: rgba(255, 255, 255, 1);
+    font-weight: 400;
+    display: flex;
+    transition: color $transition-text;
+    font-family: var(--font-primary);
+    font-size: 24px;
+  }
+
+  &__title::before {
+    content: "→";
+    display: inline-block;
+    overflow: hidden;
+    width: 0;
+    margin-right: 0;
+    color: var(--color-primary);
+
+    opacity: 0;
+    transform: translateX(-8px);
+    transition:
+      opacity $transition-text,
+      transform $transition-text,
+      width $transition-text,
+      margin-right $transition-text;
+  }
+
+  &__description {
+    font-family: var(--font-secondary);
+    margin-bottom: 30px;
+    font-size: 16px;
+  }
+
+  &.is-active {
+    opacity: 1 !important;
+    .service-card-v2__title {
+      font-weight: 700;
+    }
+
+    .service-card-v2__title::before {
+      opacity: 1;
+      transform: translateX(0);
+      width: 1.2em;
+      margin-right: 0.5em;
+    }
+  }
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px 8px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 0 0;
+  border-top: 0.5px solid #2a2a2a;
+}
+
+@media screen and (max-width: 991px) {
+  .features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 8px;
+    list-style: none;
+    margin: 0;
+    padding: 10px 0 0;
+    border-top: 0.5px solid #2a2a2a;
+  }
+}
+
+.feature {
+  display: flex;
+  align-items: start;
+  gap: 7px;
+  font-size: 1.6rem;
+  color: #cccccc;
+}
+
+.feature-icon {
+  color: #e63232;
+  flex-shrink: 0;
+}

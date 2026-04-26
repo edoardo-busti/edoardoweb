@@ -1,0 +1,164 @@
+[
+  {
+    "id": 1,
+    "question": "Che tipo di siti e servizi realizzi?",
+    "answers": [
+      "Mi occupo di progettazione e sviluppo di: siti web vetrina e istituzionali, landing page e one-page, e-commerce, blog e portali di contenuto, applicationi su misura, restyling e riprogettazione di siti esistenti.",
+      "Oltre allo sviluppo, posso supportarti con servizi complementari quali design UI/UX, brand identity, SEO on-page, copywriting."
+    ]
+  },
+
+  {
+    "id": 2,
+    "question": "La consulenza iniziale è gratuita?",
+    "answers": [
+      "Sì. Il primo incontro conoscitivo, che sia una videochiamata o una telefonata, è sempre gratuito e senza impegno. Serve a entrambi: a te per capire se sono il professionista giusto e a me per valutare il progetto e verificare se posso offrirti un reale valore aggiunto.",
+      "La consulenza iniziale ha una durata indicativa di 30 minuti. Eventuali sessioni di consulenza strategica approfondita successive al primo incontro saranno quotate separatamente."
+    ]
+  },
+
+  {
+    "id": 3,
+    "question": "Cosa devo preparare per la consulenza online?",
+    "answers": [
+      "Per rendere il primo incontro il più produttivo possibile, ti consiglio di preparare: una descrizione chiara del progetto (anche solo a grandi linee), esempi di siti che ti piacciono e che rappresentano la direzione estetica o funzionale che hai in mente, il budget indicativo che hai a disposizione, le tempistiche entro cui vorresti andare online, eventuali materiali già pronti (logo, testi, fotografie, brand guidelines).",
+      "Non preoccuparti se non hai tutto chiaro: il primo confronto serve proprio a definire insieme la strada migliore."
+    ]
+  },
+  {
+    "id": 4,
+    "question": "Lavori con privati, aziende e clienti esteri?",
+    "answers": [
+      "Lavoro con privati, liberi professionisti, startup, PMI e aziende strutturate. Ogni progetto viene trattato con la stessa cura e professionalità, indipendentemente dalla dimensione del cliente.",
+      "Accetto progetti anche da clienti con sede all'estero. In quel caso la fatturazione segue la normativa per le operazioni intracomunitarie o extracomunitarie in vigore."
+    ]
+  },
+  {
+    "id": 5,
+    "question": "Puoi intervenire su un sito già esistente creato da altri?",
+    "answers": [
+      "Sì, a patto che venga prima effettuata un'analisi tecnica preliminare. Intervenire su un progetto altrui comporta sempre un'attività di audit iniziale per valutare la qualità del codice, l'architettura, la sicurezza e le criticità presenti. Questa analisi può avere un costo dedicato, perché richiede tempo e competenza.",
+      "Dopo l'audit, ti fornirò un quadro chiaro: se conviene intervenire sul sito esistente, se è meglio ricostruirlo da zero, e in entrambi i casi quali sono costi e tempistiche. L'obiettivo è sempre quello di fornirti la soluzione più efficace e sostenibile nel tempo, non la più costosa."
+    ]
+  },
+  {
+    "id": 6,
+    "question": "Con quali tecnologie e piattaforme lavori?",
+    "answers": [
+      "Le tecnologie e piattaforme principali con cui lavoro sono: HTML, CSS, JavaScript, React, Tailwind, Next, Supabase, WordPress, Shopify.",
+      "La scelta della tecnologia non è mai casuale: viene fatta sulla base delle esigenze specifiche del progetto, del budget, della scalabilità futura e del livello di autonomia che desideri nella gestione dei contenuti. In fase di preventivo ti spiegherò in modo chiaro e trasparente perché una determinata soluzione è più adatta di un'altra per il tuo caso."
+    ]
+  },
+  {
+    "id": 7,
+    "question": "Come calcoli il prezzo e quanto costa un sito?",
+    "answers": [
+      "Ogni progetto è diverso, quindi non applico listini fissi. Il prezzo viene calcolato in base a una combinazione di fattori: complessità del progetto (numero di pagine, funzionalità richieste, integrazioni), tipologia di sito (vetrina, e-commerce, web app), qualità e quantità dei contenuti da creare o rielaborare, tempistiche richieste (le urgenze possono incidere sul costo), livello di personalizzazione del design.",
+      "Il preventivo dettagliato è sempre gratuito."
+    ]
+  },
+
+  {
+    "id": 9,
+    "question": "Si firma un contratto? Cosa include?",
+    "answers": [
+      "Sempre. Non inizio mai un progetto senza un accordo scritto firmato da entrambe le parti. È una tutela fondamentale sia per te che per me.",
+      "Il contratto include: descrizione dettagliata dei servizi e dei deliverable previsti, tempistiche di consegna con milestone intermedie, importo totale e piano di pagamento, numero di revisioni incluse e costi delle revisioni extra, clausole su proprietà intellettuale e cessione dei diritti, responsabilità delle parti (cosa fornisci tu, cosa produco io), condizioni di recesso e risoluzione anticipata, informativa sul trattamento dei dati personali (GDPR).",
+      "Il contratto viene inviato in formato digitale e può essere firmato elettronicamente."
+    ]
+  },
+  {
+    "id": 10,
+    "question": "Di chi è la proprietà intellettuale del lavoro a progetto concluso?",
+    "answers": [
+      "A saldo completato, tutti i diritti di proprietà intellettuale sui deliverable concordati (design, codice, contenuti originali prodotti da me) vengono ceduti a te in modo pieno ed esclusivo, come specificato nel contratto.",
+      "Fanno eccezione: librerie, framework e componenti open source di terze parti, che restano soggetti alle rispettive licenze; eventuali strumenti, snippet o template proprietari sviluppati da me prima o indipendentemente dal tuo progetto, sui quali mantengo la titolarità (ti viene concessa licenza d'uso illimitata).",
+      "Mi riservo inoltre il diritto di includere il progetto nel mio portfolio professionale, salvo diverso accordo scritto."
+    ]
+  },
+  {
+    "id": 11,
+    "question": "Cosa succede se una delle due parti vuole recedere?",
+    "answers": [
+      "Il contratto prevede una clausola di recesso chiara per entrambe le parti.",
+      "Se recedi tu (cliente): hai il diritto di interrompere il progetto in qualsiasi momento con comunicazione scritta. Ti verrà addebitato il lavoro effettivamente svolto fino a quel momento, calcolato sulle milestone completate o sulle ore impiegate. L'acconto versato non è rimborsabile, in quanto copre la pianificazione, la ricerca iniziale e la prenotazione della mia agenda.",
+      "Se recedo io (professionista): ti verrà restituita la parte di compenso relativa al lavoro non ancora svolto. Ti consegnerò tutti i materiali e i file prodotti fino a quel momento, affinché tu possa proseguire con un altro professionista.",
+      "In entrambi i casi, il contratto stabilisce un termine di preavviso di [7/15/30 giorni]."
+    ]
+  },
+  {
+    "id": 12,
+    "question": "Quali metodi di pagamento accetti e come sono suddivisi?",
+    "answers": [
+      "Accetto pagamenti tramite [bonifico bancario/PayPal/Stripe/Satispay/altro]. Per i clienti esteri è possibile pagare tramite [bonifico SEPA/SWIFT/PayPal/Wise].",
+      "La suddivisione standard dei pagamenti è la seguente: [30%] alla firma del contratto (acconto, a conferma dell'incarico), [30%] al raggiungimento di una milestone intermedia concordata (es. approvazione del design), [40%] saldo alla consegna finale, prima della messa online.",
+      "Per progetti di importo superiore a [€X.XXX] o di durata particolarmente lunga, possiamo concordare un piano di pagamento personalizzato con rate mensili legate all'avanzamento dei lavori."
+    ]
+  },
+
+  {
+    "id": 14,
+    "question": "Cosa succede in caso di ritardo nei pagamenti?",
+    "answers": [
+      "Il rispetto delle scadenze di pagamento è essenziale per garantire la continuità del progetto.",
+      "In caso di mancato pagamento entro i termini concordati: invio un primo sollecito scritto dopo [7 giorni] dalla scadenza; se il pagamento non viene regolarizzato entro ulteriori [15 giorni], mi riservo il diritto di sospendere tutte le attività in corso fino al saldo; in caso di inadempimento prolungato, il contratto prevede l'applicazione di interessi di mora ai sensi del D.Lgs. 231/2002, oltre al diritto di risolvere il contratto e richiedere il pagamento del lavoro svolto.",
+      "Il sito o i materiali prodotti non verranno consegnati né resi accessibili fino al completo saldo di quanto dovuto."
+    ]
+  },
+
+  {
+    "id": 16,
+    "question": "Come mi tieni aggiornato e quali strumenti usi?",
+    "answers": [
+      "Credo nella trasparenza totale. Durante il progetto avrai sempre visibilità sull'avanzamento dei lavori.",
+      "Prevedo aggiornamenti regolari con cadenza settimanale, oltre a call di allineamento nelle fasi chiave del progetto. "
+    ]
+  },
+
+  {
+    "id": 18,
+    "question": "Quante revisioni sono incluse e cosa conta come \"revisione\"?",
+    "answers": [
+      "Ogni progetto include 3 cicli di revisione per ciascuna fase principale (design e sviluppo).",
+      "Una revisione consiste in un insieme di modifiche estetiche o di contenuto che non alterano la struttura, l'architettura o le funzionalità concordate. Esempi: cambiare un colore, spostare un elemento, sostituire un'immagine, modificare un testo, aggiustare spaziature.",
+      "Una modifica sostanziale è invece un cambiamento che impatta sulla struttura del progetto. Esempi: aggiungere una nuova pagina, ripensare il layout da zero, introdurre una funzionalità non prevista, cambiare radicalmente la direzione creativa dopo l'approvazione. Queste modifiche vengono trattate come extra e quotate separatamente.",
+      "Le revisioni oltre i cicli inclusi vengono addebitate a €35/ora."
+    ]
+  },
+
+  {
+    "id": 20,
+    "question": "Come avviene la consegna?",
+    "answers": [
+      "La consegna avviene in modo strutturato: test finale con collaudo completo del sito su diversi browser e dispositivi, presentazione del sito in ambiente di staging per la tua revisione e approvazione scritta, pubblicazione sul server di produzione, consegna di tutte le credenziali di accesso, file sorgente, documentazione tecnica e un eventuale breve manuale d'uso.",
+      "Da parte tua, prima della messa online, avrò bisogno di: credenziali di accesso all'hosting e al dominio (se già acquistati da te), contenuti definitivi approvati (testi, immagini, video), eventuali account di terze parti necessari (Google Analytics, servizi email, gateway di pagamento per e-commerce).",
+      "Se non hai ancora un hosting o un dominio, posso consigliarti le soluzioni più adatte e gestirne l'acquisto per tuo conto o guidarti nell'acquisto."
+    ]
+  },
+  {
+    "id": 21,
+    "question": "Il sito sarà responsive, ottimizzato e conforme alle normative?",
+    "answers": [
+      "Sì, sempre. Ogni sito che realizzo rispetta di base questi standard: responsive design perfettamente fruibile da desktop, tablet e smartphone; ottimizzazione di velocità, peso delle immagini e tempi di caricamento; SEO tecnica con struttura semantica corretta, meta tag, sitemap XML e dati strutturati di base; sicurezza con certificato SSL (HTTPS), protezione delle form e best practice; conformità GDPR e Cookie Law con banner cookie conforme alla normativa europea, informativa privacy e cookie policy predisposte in collaborazione con il tuo consulente legale o generate tramite servizio dedicato.",
+      "Se il tuo settore richiede conformità a normative specifiche, affronteremo la questione in fase di analisi."
+    ]
+  },
+  {
+    "id": 24,
+    "question": "Cosa succede se il risultato non mi soddisfa?",
+    "answers": [
+      "Il mio metodo di lavoro è strutturato per evitare questa situazione. Grazie a: brief iniziale dettagliato per allinearci su obiettivi e aspettative, approvazione del design prima dello sviluppo, anteprime condivise durante tutto il processo, cicli di revisione inclusi nel progetto.",
+      "Ogni fase richiede la tua approvazione scritta prima di passare alla successiva. Questo protegge entrambi: tu hai il controllo in ogni momento, io lavoro su basi approvate.",
+      "Se, nonostante il processo strutturato, il risultato finale non dovesse soddisfare i requisiti concordati nel contratto, lavorerò per trovare una soluzione. Tuttavia, è importante chiarire che le revisioni incluse coprono modifiche all'interno dell'ambito concordato: un ripensamento radicale sulla direzione creativa dopo l'approvazione delle fasi precedenti costituisce una modifica sostanziale e verrà gestita di conseguenza."
+    ]
+  },
+  {
+    "id": 25,
+    "question": "Offri garanzie sul lavoro svolto e sulla sicurezza del sito?",
+    "answers": [
+      "Sì. Garantisco che il lavoro consegnato: è conforme a quanto specificato nel contratto e nel preventivo, è privo di difetti tecnici noti al momento della consegna, è realizzato con codice originale o con tecnologie regolarmente licenziate.",
+      "Per i 60 giorni successivi alla consegna, mi impegno a risolvere gratuitamente eventuali bug o malfunzionamenti tecnici, se direttamente imputabili al mio lavoro.",
+      "Non rientrano nella garanzia: problemi causati da interventi di terzi sul codice, modifiche effettuate autonomamente dal cliente senza la mia supervisione, malfunzionamenti derivanti da aggiornamenti di terze parti (plugin, CMS, hosting)."
+    ]
+  }
+]

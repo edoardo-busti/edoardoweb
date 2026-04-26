@@ -1,0 +1,130 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Accordion FAQ — Accordion.scss
+// Prefisso: acc-
+// Allineato al design system (booking / quote-widget)
+// ─────────────────────────────────────────────────────────────────────────────
+
+$acc-primary: #ff0000;
+$acc-primary-dim: rgba(255, 0, 0, 0.08);
+$acc-primary-border: rgba(255, 0, 0, 0.2);
+$acc-bg: #141414;
+$acc-bg-card: #1c1c1c;
+$acc-border: rgba(255, 255, 255, 0.1);
+$acc-border-hover: rgba(255, 255, 255, 0.2);
+$acc-text: #ffffff;
+$acc-text-muted: rgba(255, 255, 255, 0.5);
+$acc-text-subtle: rgba(255, 255, 255, 0.28);
+$acc-radius: 10px;
+$acc-transition: 0.3s ease;
+$acc-ease: cubic-bezier(0.4, 0, 0.2, 1);
+
+.accordion__content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: none;
+  border: none;
+  border-radius: $acc-radius;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: $acc-text;
+    letter-spacing: -0.01em;
+    margin: 0 0 8px;
+    text-align: center;
+  }
+}
+
+.accordion__item {
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  border-radius: $acc-radius;
+  border: 1px solid $acc-border;
+  background: $acc-bg-card;
+  transition: border-color $acc-transition;
+
+  &:hover {
+    border-color: $acc-border-hover;
+  }
+}
+
+.item__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 12px;
+  cursor: pointer;
+  padding: 14px 0;
+
+  &.active {
+    .item__icon {
+      border-color: $acc-primary-border;
+      background: $acc-primary-dim;
+
+      svg {
+        transform: rotate(180deg);
+        color: $acc-primary;
+      }
+    }
+
+    .item__question {
+      color: $acc-text;
+    }
+  }
+}
+
+.item__question {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: var(--font-primary);
+  line-height: 1.4;
+  color: $acc-text-muted;
+  margin: 0;
+  transition: color $acc-transition;
+}
+
+.item__icon {
+  flex: 0 0 28px;
+  height: 28px;
+  width: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: $acc-radius;
+  border: 1px solid $acc-border;
+  background: none;
+  transition:
+    background $acc-transition,
+    border-color $acc-transition;
+
+  svg {
+    color: $acc-text-subtle;
+    transition:
+      transform 0.25s $acc-ease,
+      color 0.25s $acc-ease;
+  }
+}
+
+.item__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.32s $acc-ease;
+}
+
+.item__answer {
+  font-size: 16px;
+  line-height: 1.6;
+  color: $acc-text-muted;
+  margin: 0 0 12px;
+  font-weight: 300;
+  font-family: var(--font-secondary);
+
+  &:last-child {
+    margin-bottom: 16px;
+  }
+}

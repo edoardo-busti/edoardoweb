@@ -1,0 +1,10 @@
+.responsive-order {
+  display: flex;
+  flex-direction: column;
+}
+
+@media screen and (max-width: 991px) {
+  .responsive-order {
+    flex-direction: column-reverse;
+  }
+}

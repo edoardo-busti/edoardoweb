@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prenotazione confermata</title>
+  </head>
+  <body
+    style="
+      margin: 0;
+      padding: 0;
+      background-color: #0a0a0a;
+      font-family:
+        -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, Roboto,
+        sans-serif;
+    "
+  >
+    <div style="display: none; max-height: 0; overflow: hidden; mso-hide: all">
+      La tua call è confermata per {{date}} alle {{slot}}
+    </div>
+    <table
+      width="100%"
+      cellpadding="0"
+      cellspacing="0"
+      style="background-color: #0a0a0a; padding: 40px 20px"
+    >
+      <tr>
+        <td align="center">
+          <table
+            width="100%"
+            cellpadding="0"
+            cellspacing="0"
+            style="max-width: 520px"
+          >
+            <!-- Header -->
+            <tr>
+              <td
+                style="
+                  background-color: #141414;
+                  border-radius: 20px 20px 0 0;
+                  border: 1px solid rgba(255, 255, 255, 0.1);
+                  border-bottom: none;
+                  padding: 32px 40px 24px;
+                "
+              >
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td>
+                      <!-- Logo / Nome -->
+                      <p
+                        style="
+                          margin: 0;
+                          font-size: 13px;
+                          font-weight: 700;
+                          color: rgba(255, 255, 255, 0.4);
+                          text-transform: uppercase;
+                          letter-spacing: 0.1em;
+                          text-decoration: none;
+                        "
+                      >
+                        {{from_name}}
+                      </p>
+                    </td>
+                    <td align="right">
+                      <!-- Badge stato -->
+                      <span
+                        style="
+                          display: inline-block;
+                          background-color: rgba(255, 0, 0, 0.1);
+                          border: 1px solid rgba(255, 0, 0, 0.25);
+                          border-radius: 20px;
+                          padding: 4px 12px;
+                          font-size: 11px;
+                          font-weight: 700;
+                          color: #ff0000;
+                          text-transform: uppercase;
+                          letter-spacing: 0.08em;
+                        "
+                        >Confermata</span
+                      >
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Titolo -->
+                <h1
+                  style="
+                    margin: 24px 0 0;
+                    font-size: 26px;
+                    font-weight: 700;
+                    color: #ffffff;
+                    letter-spacing: -0.02em;
+                    line-height: 1.2;
+                  "
+                >
+                  Prenotazione confermata
+                </h1>
+                <p
+                  style="
+                    margin: 8px 0 0;
+                    font-size: 14px;
+                    color: rgba(255, 255, 255, 0.5);
+                    line-height: 1.6;
+                  "
+                >
+                  Ciao
+                  <strong style="color: #ffffff; font-weight: 600"
+                    >{{name}}</strong
+                  >, la tua call è stata prenotata con successo.
+                </p>
+              </td>
+            </tr>
+
+            <!-- Divider rosso -->
+            <tr>
+              <td
+                style="
+                  background-color: #141414;
+                  border-left: 1px solid rgba(255, 255, 255, 0.1);
+                  border-right: 1px solid rgba(255, 255, 255, 0.1);
+                  padding: 0 40px;
+                "
+              >
+                <div
+                  style="
+                    height: 1px;
+                    background: linear-gradient(
+                      90deg,
+                      #ff0000,
+                      rgba(255, 0, 0, 0.1)
+                    );
+                  "
+                ></div>
+              </td>
+            </tr>
+
+            <!-- Dettagli prenotazione -->
+            <tr>
+              <td
+                style="
+                  background-color: #141414;
+                  border-left: 1px solid rgba(255, 255, 255, 0.1);
+                  border-right: 1px solid rgba(255, 255, 255, 0.1);
+                  padding: 28px 40px;
+                "
+              >
+                <!-- Card dettagli -->
+                <table
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="
+                    background-color: #1c1c1c;
+                    border: 1px solid rgba(255, 255, 255, 0.08);
+                    border-radius: 12px;
+                    overflow: hidden;
+                  "
+                >
+                  <tr>
+                    <td style="padding: 20px 24px">
+                      <!-- Data -->
+                      <table
+                        width="100%"
+                        cellpadding="0"
+                        cellspacing="0"
+                        style="margin-bottom: 16px"
+                      >
+                        <tr>
+                          <td
+                            style="
+                              padding-bottom: 16px;
+                              border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+                            "
+                          >
+                            <p
+                              style="
+                                margin: 0 0 4px;
+                                font-size: 10px;
+                                font-weight: 700;
+                                color: rgba(255, 255, 255, 0.28);
+                                text-transform: uppercase;
+                                letter-spacing: 0.08em;
+                              "
+                            >
+                              Data e orario
+                            </p>
+                            <p
+                              style="
+                                margin: 0;
+                                font-size: 15px;
+                                font-weight: 600;
+                                color: #ffffff;
+                              "
+                            >
+                              {{date}} · {{slot}}
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+
+                      <!-- Tipo -->
+                      <table
+                        width="100%"
+                        cellpadding="0"
+                        cellspacing="0"
+                        style="margin-bottom: 16px"
+                      >
+                        <tr>
+                          <td
+                            style="
+                              padding-bottom: 16px;
+                              border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+                            "
+                          >
+                            <p
+                              style="
+                                margin: 0 0 4px;
+                                font-size: 10px;
+                                font-weight: 700;
+                                color: rgba(255, 255, 255, 0.28);
+                                text-transform: uppercase;
+                                letter-spacing: 0.08em;
+                              "
+                            >
+                              Tipo di chiamata
+                            </p>
+                            <p
+                              style="
+                                margin: 0;
+                                font-size: 15px;
+                                font-weight: 600;
+                                color: #ffffff;
+                              "
+                            >
+                              {{type}}
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+
+                      <!-- Durata -->
+                      <table width="100%" cellpadding="0" cellspacing="0">
+                        <tr>
+                          <td>
+                            <p
+                              style="
+                                margin: 0 0 4px;
+                                font-size: 10px;
+                                font-weight: 700;
+                                color: rgba(255, 255, 255, 0.28);
+                                text-transform: uppercase;
+                                letter-spacing: 0.08em;
+                              "
+                            >
+                              Durata
+                            </p>
+                            <p
+                              style="
+                                margin: 0;
+                                font-size: 15px;
+                                font-weight: 600;
+                                color: #ffffff;
+                              "
+                            >
+                              30 minuti
+                            </p>
+                          </td>
+                        </tr>
+                      </table>
+                    </td>
+                  </tr>
+                </table>
+
+                <!-- Meet link (visibile solo se Google Meet) -->
+                {{#if meet_link}}
+                <table
+                  width="100%"
+                  cellpadding="0"
+                  cellspacing="0"
+                  style="margin-top: 16px"
+                >
+                  <tr>
+                    <td
+                      style="
+                        background-color: rgba(255, 0, 0, 0.06);
+                        border: 1px solid rgba(255, 0, 0, 0.2);
+                        border-radius: 12px;
+                        padding: 16px 24px;
+                      "
+                    >
+                      <p
+                        style="
+                          margin: 0 0 4px;
+                          font-size: 10px;
+                          font-weight: 700;
+                          color: rgba(255, 0, 0, 0.6);
+                          text-transform: uppercase;
+                          letter-spacing: 0.08em;
+                        "
+                      >
+                        Link Google Meet
+                      </p>
+                      <a
+                        href="{{meet_link}}"
+                        style="
+                          color: #ff0000;
+                          font-size: 14px;
+                          font-weight: 600;
+                          text-decoration: none;
+                          word-break: break-all;
+                        "
+                        >{{meet_link}}</a
+                      >
+                    </td>
+                  </tr>
+                </table>
+                {{/if}}
+              </td>
+            </tr>
+
+            <!-- CTA -->
+            <tr>
+              <td
+                style="
+                  background-color: #141414;
+                  border-left: 1px solid rgba(255, 255, 255, 0.1);
+                  border-right: 1px solid rgba(255, 255, 255, 0.1);
+                  padding: 0 40px 32px;
+                "
+              >
+                {{#if meet_link}}
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center" style="padding-top: 24px">
+                      <a
+                        href="{{meet_link}}"
+                        style="
+                          display: inline-block;
+                          background-color: #ff0000;
+                          color: #ffffff;
+                          font-size: 14px;
+                          font-weight: 700;
+                          text-decoration: none;
+                          padding: 12px 32px;
+                          border-radius: 10px;
+                          letter-spacing: 0.01em;
+                        "
+                        >Entra nella call →</a
+                      >
+                    </td>
+                  </tr>
+                </table>
+                {{/if}}
+              </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+              <td
+                style="
+                  background-color: #111111;
+                  border: 1px solid rgba(255, 255, 255, 0.1);
+                  border-top: none;
+                  border-radius: 0 0 20px 20px;
+                  padding: 24px 40px;
+                "
+              >
+                <p
+                  style="
+                    margin: 0;
+                    font-size: 12px;
+                    color: rgba(255, 255, 255, 0.25);
+                    line-height: 1.6;
+                    text-align: center;
+                  "
+                >
+                  Hai ricevuto questa email perché hai prenotato una call su
+                  <strong style="color: rgba(255, 255, 255, 0.4)"
+                    >www.edoardoweb.it</strong
+                  >.<br />
+                  Se non sei stato tu, ignora questa email.
+                </p>
+                <p
+                  style="
+                    margin: 0 0 12px;
+                    font-size: 12px;
+                    color: rgba(255, 255, 255, 0.25);
+                    text-align: center;
+                  "
+                >
+                  Vuoi cancellare la prenotazione?
+                </p>
+                <table width="100%" cellpadding="0" cellspacing="0">
+                  <tr>
+                    <td align="center">
+                      <a
+                        href="{{cancel_url}}"
+                        style="
+                          display: inline-block;
+                          background: transparent;
+                          border: 1px solid rgba(255, 255, 255, 0.1);
+                          color: rgba(255, 255, 255, 0.4);
+                          font-size: 13px;
+                          font-weight: 600;
+                          text-decoration: none;
+                          padding: 10px 24px;
+                          border-radius: 10px;
+                        "
+                        >Cancella prenotazione</a
+                      >
+                    </td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+    <!-- Cancella -->
+  </body>
+</html>
