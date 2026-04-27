@@ -76,7 +76,7 @@ export default function Sidebar() {
                 <div className="information tmp-link-animation">
                   <span>Città</span>
                   <span className="number">
-                    Via Sagra di S. Michele 45, Torino, TO
+                    Via Sagra S. Michele 45, Torino, TO
                   </span>
                 </div>
               </div>

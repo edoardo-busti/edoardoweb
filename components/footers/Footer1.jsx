@@ -74,7 +74,7 @@ export default function Footer1({
                       <span className="ft-icon">
                         <i className="fa-solid fa-location-dot" />
                       </span>
-                      Via Sagra di S. Michele 45, Torino, TO
+                      Via Sagra S. Michele 45, Torino, TO
                     </li>
                     <li>
                       <span className="ft-icon">

@@ -210,7 +210,7 @@ export default function MobileMenu() {
                 <div className="information tmp-link-animation">
                   <span>Città</span>
                   <span className="number">
-                    Via Sagra di S. Michele 45, Torino
+                    Via Sagra S. Michele 45, Torino
                   </span>
                 </div>
               </div>
