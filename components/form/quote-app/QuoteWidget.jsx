@@ -706,7 +706,7 @@ export default function QuoteWidget({
                           <span className="bm-consent-text">
                             Ho letto e accetto la{" "}
                             <a
-                              href="/privacy-policy"
+                              href="https://www.iubenda.com/privacy-policy/41659310"
                               target="_blank"
                               rel="noopener noreferrer"
                               className="bm-consent-link"
